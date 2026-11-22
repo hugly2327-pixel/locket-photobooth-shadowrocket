@@ -1,0 +1,5 @@
+[General]
+dns-server = https://cloudflare-dns.com/dns-query
+fallback-dns-server = https://dns.google/dns-query
+dns-direct-system = false
+dns-direct-fallback-proxy = true

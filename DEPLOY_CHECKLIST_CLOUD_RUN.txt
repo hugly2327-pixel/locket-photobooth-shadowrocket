@@ -1,0 +1,13 @@
+[ ] GitHub repository đặt Private
+[ ] Không upload .env, data/, session JSON, mật khẩu hoặc token
+[ ] Google Cloud project đã bật billing
+[ ] Cloud Run, Cloud Build, Artifact Registry, Cloud Storage, Secret Manager APIs đã bật
+[ ] Bucket riêng tư đã tạo ở asia-southeast1
+[ ] APP_USERNAME và APP_PASSWORD đã lưu trong Secret Manager
+[ ] Cloud Run deploy thành công
+[ ] Runtime service account có quyền objectAdmin trên bucket session
+[ ] Bucket đã mount tại /mnt/locket-data
+[ ] URL /healthz trả về ok=true
+[ ] Trang chủ yêu cầu mật khẩu riêng
+[ ] Đã thử đăng nhập Locket, tải friends/feed và post ảnh thử
+[ ] Đã đặt Billing Budget & Alerts

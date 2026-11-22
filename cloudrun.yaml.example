@@ -1,0 +1,42 @@
+# Example Cloud Run service configuration.
+# Replace PROJECT_ID, REGION, BUCKET_NAME and configure secrets separately.
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: locket-photobooth
+spec:
+  template:
+    metadata:
+      annotations:
+        run.googleapis.com/execution-environment: gen2
+    spec:
+      containerConcurrency: 1
+      containers:
+        - image: IMAGE_URL
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
+            - name: LOCKET_DATA_DIR
+              value: /mnt/locket-data
+            - name: APP_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: locket-app-username
+                  key: latest
+            - name: APP_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: locket-app-password
+                  key: latest
+          volumeMounts:
+            - name: locketdata
+              mountPath: /mnt/locket-data
+      volumes:
+        - name: locketdata
+          csi:
+            driver: gcsfuse.run.googleapis.com
+            readOnly: false
+            volumeAttributes:
+              bucketName: BUCKET_NAME

@@ -1,0 +1,17 @@
+#!name=Locket Photobooth + Secure DNS
+#!desc=Cloudflare DNS-over-HTTPS with Google fallback; add your deployed Photobooth hostname to the Rule section after deployment.
+#!category=DNS
+#!author=Personal
+#!icon=https://www.cloudflare.com/favicon.ico
+
+[General]
+dns-server = https://cloudflare-dns.com/dns-query
+fallback-dns-server = https://dns.google/dns-query
+dns-direct-system = false
+dns-direct-fallback-proxy = true
+
+# Photobooth route template:
+# After deploying Cloud Run, replace YOUR-SERVICE-HOST.run.app with the exact hostname.
+# Uncomment the rule below to send only your Photobooth website DIRECT.
+# [Rule]
+# DOMAIN,YOUR-SERVICE-HOST.run.app,DIRECT
