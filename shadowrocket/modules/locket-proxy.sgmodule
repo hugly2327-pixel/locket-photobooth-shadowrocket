@@ -1,0 +1,14 @@
+#!name=Locket - Proxy DNS
+#!desc=Routes observed Locket first-party domains through PROXY; Cloudflare DoH with Google fallback.
+#!category=Proxy
+#!author=Personal
+#!icon=https://www.cloudflare.com/favicon.ico
+
+[General]
+dns-server = https://cloudflare-dns.com/dns-query
+fallback-dns-server = https://dns.google/dns-query
+dns-direct-system = false
+dns-direct-fallback-proxy = true
+
+[Rule]
+DOMAIN-SUFFIX,locketcamera.com,PROXY
